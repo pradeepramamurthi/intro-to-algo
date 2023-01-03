@@ -3,11 +3,15 @@ and A[i] ≥ A[i + 1]. For elements on the boundaries of the array, the element 
 greater than or equal to its lone neighbor to be considered a peak."""
 
 """
+Algo Logic:
 1. Find the n/2 element
 2. If n/2 element is >= (n/2)-1 and >= (n/2)+1 then return n/2 (It is the peak)
 3. if n/2 element is < (n/2) -1 then use logic in steps 1 & 2 on the LHS array i.e Array[0] to Array[(n/2)] recursively.
 4. If step 3 does not give a peak element then use Array[n/2] + 1 to Array[len(Array)] + 1 recursively.
 5. Edge case: Check if the element is start/end of array. If start/end & >= it's only neighbour return that element as the peak.
+6. The above logic is run in Time Complexity of O(log n).
+   T(n) = T(n/2) :Running time of half of the input value + O(1) : Constant time to Compare to neighbours
+   On every pass: T(n/2) + O(1) + T(n/4) + O(1) + T(n/8) + O(1).... is repeated till only one element is left = O(log n)
 >>
 """
 def findPeak(arr,i,j):
