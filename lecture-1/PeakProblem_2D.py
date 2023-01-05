@@ -80,8 +80,8 @@ if __name__ == "__main__":
     generated2 = [[20, 505, 505, 606], [71, 500, 500, 62], [28, 1001, 300, 81], [29, 90, 100, 21]]
     generated3 = [[20, 506, 505, 505], [71, 500, 505, 62], [28, 1001, 300, 81], [29, 1002, 100, 21]]
     generated4 = [[507, 506, 505, 505], [1071, 500, 505, 62], [28, 101, 300, 81], [29, 100, 100, 21]]
-    # print(find_2d_peak(generated, 3, 0, 3))
-    # print(find_2d_peak(generated2, 4, 0, 4))
-    # print(find_2d_peak(generated3, 4, 0, 4))
+    print(find_2d_peak(generated, 3, 0, 3))
+    print(find_2d_peak(generated2, 4, 0, 4))
+    print(find_2d_peak(generated3, 4, 0, 4))
     print(find_2d_peak(generated4, 4, 0, 4))
 
