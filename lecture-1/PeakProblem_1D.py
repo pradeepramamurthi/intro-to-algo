@@ -12,30 +12,31 @@ Algo Logic:
 6. The above logic is run in Time Complexity of O(log n).
    T(n) = T(n/2) :Running time of half of the input value + O(1) : Constant time to Compare to neighbours
    On every pass: T(n/2) + O(1) + T(n/4) + O(1) + T(n/8) + O(1).... is repeated till only one element is left = O(log n)
->>
 """
-def findPeak(arr,i,j):
-    #find the midpoint
+
+
+def find_peak(arr, i, j):
+    # find the midpoint
     mid_point = int((i+j)/2)
-    #Edge case - when mid-point is end of array
+    # Edge case - when mid-point is end of array
     if mid_point+1 == len(arr):
         if arr[mid_point] >= arr[mid_point-1]:
           return arr[mid_point]
-    #Edge case - when mid-point is start of array
+    # Edge case - when mid-point is start of array
     if mid_point-1 < 0:
         if arr[mid_point] >= arr[mid_point+1]:
             return arr[mid_point]
-    #for all other cases
+    # for all other cases
     if arr[mid_point-1] <= arr[mid_point] >= arr[mid_point+1]:
         return arr[mid_point]
     elif arr[mid_point-1] > arr[mid_point]:
-        return findPeak(arr,i,mid_point-1)
+        return find_peak(arr,i,mid_point-1)
     elif arr[mid_point+1] > arr[mid_point]:
-        return findPeak(arr,mid_point+1,j)
+        return find_peak(arr,mid_point+1,j)
 
 
 if __name__ == "__main__":
     given_array_1 = [44,18,15,12,1,10,13,88,90,91,0]
-    print(findPeak(given_array_1,0,len(given_array_1)))
     given_array_2 = [6,7,4,3,2,1,4,5]
-    print(findPeak(given_array_2,0,len(given_array_2)))
+    print(find_peak(given_array_1,0,len(given_array_1)))
+    print(find_peak(given_array_2,0,len(given_array_2)))
