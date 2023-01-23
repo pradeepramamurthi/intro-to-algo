@@ -83,7 +83,6 @@ def insert(A, key):
 def delete(A, key):
     global heap_size
     reset_heap_size(A)
-    reset_heap_size(A)
     """Get the index of the key you want to delete"""
     key_index = A.index(key)
     """swap it with the last element"""
@@ -94,17 +93,17 @@ def delete(A, key):
 
 
 def check_invariant(A):
-    heap_size = len(A) - 1
-    mid = heap_size // 2
+    loc_heap_size = len(A) - 1
+    mid = loc_heap_size // 2
 
     for i in range(mid, -1, -1):
         lhs = (2 * i) + 1
         rhs = lhs + 1
-        if lhs <= heap_size and A[lhs] > A[i]:
+        if lhs <= loc_heap_size and A[lhs] > A[i]:
             largest = lhs
         else:
             largest = i
-        if rhs <= heap_size and A[rhs] > A[largest]:
+        if rhs <= loc_heap_size and A[rhs] > A[largest]:
             largest = rhs
         if i != largest:
             return False
